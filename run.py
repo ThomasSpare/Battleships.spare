@@ -1,6 +1,8 @@
 # Your code goes here.
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
+
+
 from toolbox import clear_console
 from termcolor import colored
 import time
@@ -53,4 +55,18 @@ while game:
 print("Very Good Captain! We'll set up a "+ boardsize +" x "+ boardsize +" board for ya right away.")
 time.sleep(3)
 clear_console()
-
+print(colored(""" 
+To win this game you must defeat the cunning Captain John McWhir whos gone mad and turned against us.
+He is hiding together with his fleet somewhere out there. We must shoot down his fleet before he
+can bombard our ships. 
+""","cyan"))
+time.sleep(3)
+print(colored("""
+Unfortunatly this weather doesn´t make it an easy task. The Typhoon that is roaring across the sea will
+make it even more difficult as ships that are hit can be concealed again and blown away to some other place.
+""","cyan"))
+time.sleep(3)
+print(colored("""
+We must shoot down his ships as fast as possible or he will sneak up on us and wipe us out. 
+Now place your ships wisely on the board.
+""","cyan"))
