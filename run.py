@@ -5,7 +5,7 @@
 
 from toolbox import clear_console
 from termcolor import colored
-import time
+from boardfunctions import buildboard
 
 
 
@@ -31,7 +31,7 @@ def menu():
             ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ \n
         """, "cyan"))
 game = True
-user_name = input("Captain, please write your name in the logbook to do battle: ")       
+user_name = input("Captain, please write your name in the logbook to do battle: ")        
 time.sleep(1)
 print(colored("Board sizes: 6 X 6  or 10 X 10 (choose 6 or 10)","light_green"))
 time.sleep(1)
@@ -54,6 +54,7 @@ while game:
     else:
             print(colored("Captain "+ user_name +" we dont have time for this, choose 6 or 10, the enemy is near."))
             game = True
+            
 
     print("Very Good Captain! We'll set up a "+ boardsize +" x "+ boardsize +" board for ya right away.")
     time.sleep(1)
@@ -74,6 +75,18 @@ while game:
     Now place your ships wisely on the board.
     ""","cyan"))
 
+boardsize = int(str.boardsize)
+print(boardsize)
 
-def main():
+
+def main(user_name, boardsize):
     """
+#   Main run Game function
+#    First engaged when user
+#    has completed the input
+#    validation above
+#   """
+    boardsize = int(boardsize)
+
+buildboard(user_name, boardsize)
+
