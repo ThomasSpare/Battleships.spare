@@ -43,7 +43,6 @@ while Intro:
         Intro = False
     elif difficulty == "20":
         boardsize = "20"
-        boardTwenty()
         ValueError
         "Choose a board by pressing 5 or 20 sire.\n"
         Intro = False
@@ -56,7 +55,7 @@ while Intro:
     time.sleep(1)
     clear_console()
     print(colored(""" 
-    To win this game you must defeat the cunning Captain John McWhir 
+    To win this game you must defeat the cunning Captain John McWhir
     whos gone mad and turned against us.
     He is hiding together with his fleet somewhere out there. 
     We must shoot down his fleet before he
@@ -84,13 +83,13 @@ class GameBoard:
 
 
 
-    def get_letter_to_numbers():
-        letters_to_numbers = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
-        return letters_to_numbers
+    def get_let_to_num():
+        let_to_num = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
+        return let_to_num
 
     
     def print_board(self):
-        print("  A B C D E ")
+        print("\u0332".join("  A B C D E"))
         print("--^-^-^-^-^-")
         row_number = 1
         for row in self.board:
@@ -117,15 +116,14 @@ class Battleship:
             Xrow = input("Enter the row of the ship: ")
             while Xrow not in '12345':
                 print('You cannot do that, please select a valid row\n')
-                Xrow = input("Enter the row of the ship: \n")
-
+            Xrow = input("Enter the row of the ship: \n")
             Yclm = input("Enter the column letter of the ship: ").upper()
-            while Yclm not in "ABCDEFGHIJ":
+            while Yclm not in "ABCDE":
                 print('You can not do that, please select another column\n')
-                return int(Xrow) -1, GameBoard.get_letter_to_numbers()[Yclm]
+            return int(Xrow) -1, GameBoard.get_let_to_num()[Yclm]
         except ValueError:
             print("Not a valid input\n")
-            return self.get_user_input() 
+            return self.get_user_input()
 
 
     def count_hit_ships(self):
@@ -136,7 +134,7 @@ class Battleship:
                     hit_ships += 1
         return hit_ships
 
-    def boardTwenty()
+
 
 
 
@@ -165,12 +163,12 @@ def RunGame():
         if Battleship.count_hit_ships(UsrBrd) == 5:
             print("YOU WON - Damn You for destroying my fleet!\n")
             break
-        else:
-            turns -= 1
-            print(f"You have {turns} turns remaining")
-            if turns == 0:
-                print("Captain Mcwhir won\n")
-                GameBoard.print_board(UsrBrd)
+    
+        turns -= 1
+        print(f"You have {turns} turns remaining")
+        if turns == 0:
+            print("Captain Mcwhir won\n")
+            GameBoard.print_board(UsrBrd)
             break
 
 if __name__ == '__main__':
