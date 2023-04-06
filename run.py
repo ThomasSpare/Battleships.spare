@@ -1,19 +1,14 @@
-
 from toolbox import clear_console
 from termcolor import colored
 import time
 import random
 
-ship_sizes = [2, 3, 3, 4, 5]
-
-
 def menu():
     """
     Opening Game screen
     """
-
     clear_console()
-print(colored("""                                                                   
+    print(colored("""                                                                   
         ___  ____ ___ ___ _    ____ ____ _  _ _ ___  ____                 
         |__] |__|  |   |  |    |___ [__  |__| | |__] |__                  
         |__] |  |  |   |  |___ |___ ___] |  | | |    ___|                 
@@ -23,61 +18,59 @@ print(colored("""
         ____________|¨¨¨¨¨¨¨¨¨¨¨¨¨^         ^¨¨¨\_______/¨¨¨¨\~~~==______ 
         \                                                          /      
         ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨ 
-""", "white", 'on_blue'))
+    """, "white", 'on_blue'))
 
 
-
-Intro = True
-user_name=input("Captain, write your name in the logbook to do battle: ")        
+intro = True
+user_name = input("Captain, write your name in the logbook to do battle: ")
 time.sleep(1)
-print(colored("Board sizes: 5 X 5  or 20 X 20 (enter 5 or 20)", "light_green"))
+print(colored("Board sizes avaiable: 5 X 5  (enter 5)", "light_green"))
 time.sleep(1)
 
-while Intro:
-    difficulty = input("Captain " + user_name + ", enter boardsize (5 or 20): ")
+while intro:
+    difficulty = input("Captain " + user_name + ", enter boardsize (5): ")
 
     if difficulty == "5":
         boardsize = "5"
         ValueError
-        "Choose a board by pressing 5 or 20 sire.\n"
-        Intro = False
+        "Choose a board by pressing 5 sire.\n"
+        intro = False
     elif difficulty == "20":
         boardsize = "20"
         ValueError
-        "Choose a board by pressing 5 or 20 sire.\n"
-        Intro = False
+        "Choose a board by pressing 5 sire.\n"
+        intro = False
     else:
-        print(colored("Captain "+ user_name +
-        "we dont have time for this, choose 5 or 20, the enemy is near.\n"))
-        Intro = True
+        print(colored("Captain " + user_name +
+        "We only have a 5x5 board at the moment, press 5.\n"))
+        intro = True
     print("Very Good Captain! We'll set up a "
-    + boardsize +" x "+ boardsize +" board for ya right away.\n")
+    + boardsize + " x " + boardsize + " board for ya right away.\n")
     time.sleep(1)
     clear_console()
-    print(colored(""" 
+    print(colored("""
     To win this game you must defeat the cunning Captain John McWhir
     whos gone mad and turned against us.
-    He is hiding together with his fleet somewhere out there. 
+    He is hiding together with his fleet somewhere out there.
     We must shoot down his fleet before he
-    can bombard our ships. 
+    can escape.
     \n""","cyan"))
     time.sleep(2)
     print(colored("""
     Unfortunatly this weather doesn´t make it an easy task.
-     The Typhoon that is roaring across the sea will
-    make it even more difficult as ships that are hit can be concealed 
-    again and blown away to some other place.
+    The Typhoon that is roaring across the sea will
+    make it even more difficult so you only have 10 turns to 
+    blast his five ships.
     \n""","cyan"))
     time.sleep(2)
     print(colored("""
-    We must shoot down his ships as fast as possible or he will 
-    sneak up on us and wipe us out. 
-    Now place your ships wisely on the board.
+    The 5 ships are 1 square in size. A direct hit shows a (¤) 
+    a missed shot shows a (-).
     \n""","cyan"))
 
 
-    
-class GameBoard:
+
+class gameBoard:
     def __init__(self, board):
         self.board = board
 
@@ -87,50 +80,54 @@ class GameBoard:
         let_to_num = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
         return let_to_num
 
-    
+
     def print_board(self):
         print("\u0332".join("  A B C D E"))
         print("--^-^-^-^-^-")
         row_number = 1
         for row in self.board:
             print("%d|%s|" % (row_number, "|".join(row)))
-            row_number += 1  
+            row_number += 1
 
 
 
 
-class Battleship:
+class battleship:
     def __init__(self, board):
         self.board = board
 
     def create_ships(self):
         for i in range(5):
-            self.Xrow, self.Yclm = random.randint(0, 4), random.randint(0, 4)
-            while self.board[self.Xrow][self.Yclm] == "X":
-                self.Xrow, self.Yclm = random.randint(0, 4), random.randint(0, 4)
-            self.board[self.Xrow][self.Yclm] = "X"
+            self.xrow, self.yclm = random.randint(0, 4), random.randint(0, 4)
+            while self.board[self.xrow][self.yclm] == "¤":
+                self.xrow, self.yclm = random.randint(0, 4),random.randint(0,4)
+            self.board[self.xrow][self.yclm] = "¤"
         return self.board
 
     def get_user_input(self):
         try:
-            Xrow = input("Enter the row of the ship: ")
-            while Xrow not in '12345':
-                print('You cannot do that, please select a valid row\n')
-            Xrow = input("Enter the row of the ship: \n")
-            Yclm = input("Enter the column letter of the ship: ").upper()
-            while Yclm not in "ABCDE":
-                print('You can not do that, please select another column\n')
-            return int(Xrow) -1, GameBoard.get_let_to_num()[Yclm]
-        except ValueError:
+            xrow = input("Enter the row of the ship: ")
+            if xrow not in '12345' or xrow == "" or type(xrow) != str:
+                print('You cannot do that, select a row number (1-5)\n')
+                xrow = input("Enter the row of the ship: \n")
+            yclm = input("Enter the column letter of the ship: ").upper()
+            if yclm not in "ABCDE" or yclm == "" or type(yclm) == int:
+                print('You can not do that, select a letter (A-E)\n')
+                yclm = input("Enter a Column A-E: \n").upper()
+                if yclm == "" or type(yclm) == int:
+                    get_user_input()
+            return int(xrow) - 1, gameBoard.get_let_to_num()[yclm]
+        except (ValueError):
             print("Not a valid input\n")
             return self.get_user_input()
+            return int(xrow) - 1, gameBoard.get_let_to_num()[yclm]
 
 
     def count_hit_ships(self):
         hit_ships = 0
         for row in self.board:
             for column in row:
-                if column == "X":
+                if column == "¤":
                     hit_ships += 1
         return hit_ships
 
@@ -139,37 +136,39 @@ class Battleship:
 
 
 
-def RunGame():
+def runGame():
     print(f"Welcome Captain {user_name}. Let's get into Battle!")
     time.sleep(1)
     print(colored(f"Mcwhir: Captain {user_name} I will show you pain!","red"))
-    computer_board = GameBoard([[" "] * 5 for i in range(5)])
-    UsrBrd = GameBoard([[" "] * 5 for i in range(5)])
-    Battleship.create_ships(computer_board)
+    computer_board = gameBoard([[" "] * 5 for i in range(5)])
+    usrBrd = gameBoard([[" "] * 5 for i in range(5)])
+    battleship.create_ships(computer_board)
 
     turns = 10
     while turns > 0:
-        GameBoard.print_board(UsrBrd)
-        Xrow, Yclm = Battleship.get_user_input(object)
-        while UsrBrd.board[Xrow][Yclm] =="-" or UsrBrd.board[Xrow][Yclm]== "X":
+        gameBoard.print_board(usrBrd)
+        xrow, yclm = battleship.get_user_input(object)
+        while usrBrd.board[xrow][yclm] == "-" or usrBrd.board[xrow][yclm]=="¤":
             print("You guessed that one already")
-            Xrow, Yclm = Battleship.get_user_input(object)
-        if computer_board.board[Xrow][Yclm] == "X":
-            print("You will pay for sinking 1 of my battleships!\n")
-            UsrBrd.board[Xrow][Yclm] = "X"
+            xrow, yclm = battleship.get_user_input(object)
+        if computer_board.board[xrow][yclm] == "¤":
+            print(colored("HIT ! You will pay for sinking 1 of my "
+            "battleships!\n","light_green"))
+            usrBrd.board[xrow][yclm] = "¤"
         else:
             print("Ha, You missed my battleship!")
-            UsrBrd.board[Xrow][Yclm] = "-"
-        if Battleship.count_hit_ships(UsrBrd) == 5:
+            usrBrd.board[xrow][yclm] = "-"
+        if battleship.count_hit_ships(usrBrd) == 5:
             print("YOU WON - Damn You for destroying my fleet!\n")
             break
-    
+
         turns -= 1
         print(f"You have {turns} turns remaining")
         if turns == 0:
-            print("Captain Mcwhir won\n")
-            GameBoard.print_board(UsrBrd)
+            print("The typhoon is destroying our ship, Captain Mcwhir\n"
+            "won this time\n")
+            gameBoard.print_board(usrBrd)
             break
 
 if __name__ == '__main__':
-    RunGame()
+    runGame()
