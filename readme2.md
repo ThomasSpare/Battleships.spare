@@ -18,8 +18,12 @@ struck would be displayed again.
 ---
 ![Flowchart](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/Battleships_Flowchart.png)
 
-This was my original idea for the game. The leaderboard function is not active in the game. 
+This was my original idea for the game. The leaderboard function is not active in the game.
 
+
+
+After constructing the game the flowchart looked more like this:
+![Flowchart](/workspace/Battleships.spare/documentation/images/Battleship_end_flow.png)
 deBugging
 ---
 
@@ -28,6 +32,20 @@ This caused the game to crash in a while loop.<br>
 ![int bug1](/workspace/Battleships.spare/documentation/Bugs/int_bug.jpg)
 ![int bug2](/workspace/Battleships.spare/documentation/Bugs/int2_bug.jpg)<br>
 **Solution:**<br>
+After some manual debugging I found a solution with a while loop that 
+almost made it impossible to crash the game.
+
+## Avoiding a scrolling gameboard
+From the start the gameboard would after each move scroll down and create a new
+gameboard. I found this rather annoying so to prevent this from happening I
+made use of the function clear.console() after each user input, placing the
+gameboard in a more fixed position.
+
+## Crashes
+If the user enters values in a normal fashion the game would not crash, regardless 
+if it was the wrong input value type or not. Although during manual
+testing if I repeatedly hit a number or letter really fast, 
+the game would suddenly opt out. 
 
 
 # Techologies and resources used
@@ -39,15 +57,27 @@ This caused the game to crash in a while loop.<br>
 - Python
 - PEP8 Validator
 
+# libraries used in the game
 
-# Future Implementable Features
+- time
+- random
+- termcolor
+
+
+
+# Future improvements
 ---
+As the game is at present, rather rudimentary in featues, many
+improvements could be built on this blueprint. 
 
+For instance
 - User can choose boardsize
 - One user board / One CPU board
 - Computer guess
 - Advanced Computer guess
 - Typhoon scenario  (se above image)
+My typhoon scenario would introduce storms on the gameboard, moving over the board and
+swallowing ships and moving them to another location.
 - Different ship sizes
 
 
