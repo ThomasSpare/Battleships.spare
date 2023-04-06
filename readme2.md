@@ -18,7 +18,7 @@ struck would be displayed again.
 ---
 ![Flowchart](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/Battleships_Flowchart.png)
 
-## This was my original idea for the game. The leaderboard function is not active in the game.
+## The flow chart above was my original idea for the game. The leaderboard function is not active in the game.
 
 
 
