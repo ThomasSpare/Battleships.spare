@@ -45,7 +45,16 @@ gameboard in a more fixed position.
 If the user enters values in a normal fashion the game would not crash, regardless 
 if it was the wrong input value type or not. Although during manual
 testing if I repeatedly hit a number or letter really fast, 
-the game would suddenly opt out. 
+the game would suddenly opt out.
+  
+## PEP8
+Code structure check and errors in code were made using PEP8. Most errors due to the battleship logo
+in the menu and consisted of 'too many blank lines´, 'white spaces' and 'space after/before operator'.
+These errors didn´t at all make the program malfunction. Some errors was the result of not having
+enough space to write the code with spacesdue to the 80 Col limit for this project.
+
+
+
 
 
 # Techologies and resources used
