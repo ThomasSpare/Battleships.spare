@@ -29,8 +29,8 @@ deBugging
 
 **<li>Selecting 'int' in row and 'int' in column<li>**
 This caused the game to crash in a while loop.<br>
-![int bug1](/workspace/Battleships.spare/documentation/Bugs/int_bug.jpg)
-![int bug2](/workspace/Battleships.spare/documentation/Bugs/int2_bug.jpg)<br>
+![int bug1](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/Bugs/int_bug.jpg)
+![int bug2](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/Bugs/int2_bug.jpg)<br>
 **Solution:**<br>
 After some manual debugging I found a solution with a while loop that 
 almost made it impossible to crash the game.
