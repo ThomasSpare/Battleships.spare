@@ -63,9 +63,10 @@ the game would suddenly opt out.
 ## PEP8
 Code structure check and errors in code were made using PEP8. Most errors due to the battleship logo
 in the menu and consisted of 
-- 'too many blank lines´
-- 'white spaces' 
-- 'space after/before operator'
+- too many blank lines
+- white spaces 
+- space after/before operator
+
 These errors didn´t at all make the program malfunction. Some errors was the result of not having
 enough space to write the code with spacesdue to the 80 Col limit for this project.
 
