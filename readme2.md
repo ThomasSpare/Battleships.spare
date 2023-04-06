@@ -23,7 +23,7 @@ This was my original idea for the game. The leaderboard function is not active i
 
 
 After constructing the game the flowchart looked more like this:
-![Flowchart](/workspace/Battleships.spare/documentation/images/Battleship_end_flow.png)
+![Flowchart](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/images/Battleship_end_flow.png)
 deBugging
 ---
 
