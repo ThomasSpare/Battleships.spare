@@ -83,7 +83,7 @@ enough space to write the code with spaces due to the 80 Col limit for this proj
 - Python
 - PEP8 Validator
 
-# libraries used in the game
+# Python Libraries used in the game
 
 - time
 - random
