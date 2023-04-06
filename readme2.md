@@ -68,7 +68,7 @@ in the menu and consisted of
 - space after/before operator
 
 These errors didn´t at all make the program malfunction. Some errors was the result of not having
-enough space to write the code with spacesdue to the 80 Col limit for this project.
+enough space to write the code with spaces due to the 80 Col limit for this project.
 
 
 
