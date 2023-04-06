@@ -29,11 +29,16 @@ struck would be displayed again.
 
 # Debugging
 ---
+
 ## Manual Testing
 
 I tried entering every possible combination in the input fields and found that the game crashed
-most often in the row / column. So I could use boolean operators in this part of the code to
-nail down all the valid input values. 
+most often in the row / column input selection. So I used boolean operators in this part of the code to
+nail down all the valid input values such as:
+To stop an integer input for a Column: type(yclm) != int:
+To stop a letter input (str) in a Row: type(xrow) == int:
+
+---
 
 **<li>Repeteadly Entering 'int' in row and 'int' in column<li>**
 **This caused the game to crash in a while loop.**<br>
