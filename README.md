@@ -7,7 +7,7 @@
 
 # How to play
 ---
-![gameplay](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/gameplay.png)
+![gameplay](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/images/battleship_cover.png)
 
 The user start the game by entering a username and choosing a board. At the moment only one board is available (5x5).
 After this instructions follow telling the user how to win (I didn't win a single time when playing).
