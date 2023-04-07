@@ -1,14 +1,29 @@
 # Battleship Game
 ---
-## Added Feature
+![battleship-on-paper](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/images/Battleship_game_board.png)
+# 
 
-I choose to design a classic battleship game for my python project. In the middle of designing the game
-I came up with the idea of using storms (typhoons) on the board while the game went on. The storms would
-travel from the top of the board down to the bottom. If a ship that already had a hit, either the COMP or users ship, 
-was caught up in one of these storms the ship that was partly visible would disapear in the storm and be
-hidden again and moved to a different location. So the players would have to shoot the ship down before
-a typhoon came over it. If the hidden ship then would recieve another hit the ship parts that was previously
-struck would be displayed again.
+
+# How to play
+---
+
+The user start the game by entering a username and choosing a board. At the moment only one board is available (5x5).
+After this instructions follow telling the user how to win (I didn't win a single time when playing).
+
+The storyline is that Captain Mcwhir who has gone mad and turned agianst us is hiding his fleet and the user must 
+find his ships before the typhoon comes within 10 turns.
+The user must hit 5 ships in the 10 turns given. The CPU place its ships randomly on the board. 
+
+
+## Typhoon scenario
+---
+In the middle of designing the game I came up with the idea of using storms (typhoons) on the board while 
+the game went on. The storms would travel from the top of the board down to the bottom. If a ship that already 
+had a hit, either the COMP or users ship, was caught up in one of these storms the ship that was partly 
+visible would disapear in the storm and be hidden again and moved to a different location. 
+
+So the players would have to shoot the ship down before a typhoon came over it. If the hidden ship then would
+recieve another hit the ship parts that was previously struck would be displayed again.
 
 ![added feature](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/Venn_diagram.png)
 
