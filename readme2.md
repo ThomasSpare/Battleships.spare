@@ -26,7 +26,7 @@ visible would disapear in the storm and be hidden again and moved to a different
 So the players would have to shoot the ship down before a typhoon came over it. If the hidden ship then would
 recieve another hit the ship parts that was previously struck would be displayed again.
 
-![added feature](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/Venn_diagram.png)
+![added feature](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/typhoon_scenario.png)
 
 ---
 
