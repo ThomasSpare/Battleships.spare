@@ -123,9 +123,9 @@ My typhoon scenario would introduce storms on the gameboard, moving over the boa
 swallowing ships and moving them to another location.
 - Different ship sizes
   
-  
+---  
 # Deployment
-  ---
+
 ## This project was deployed using Code Institue's mock terminal for Heroku.
 
 - Steps for deployment
@@ -134,6 +134,20 @@ swallowing ships and moving them to another location.
 - Create a new app in Heroku
 - link Heroku to Github repository
 - Click on Deploy
+
+# Credits
+Code institute
+
+# Mock Terminal in Heroku
+# Structure and layout for Readme
+# Markdown Cheatsheet - https://www.markdownguide.org/cheat-sheet/
+
+Lucid Flowcharts
+
+I watched this video to learn the basics for my battleship game:
+
+https://www.youtube.com/watch?v=tF1WRCrd_HQ
+
 
 
   
