@@ -138,6 +138,9 @@ swallowing ships and moving them to another location.
 # Credits
 Code institute
 
+Thanks to my mentor Brian O'hare for support and guidance 
+Thanks to Code institute tutor support
+  
 - Mock Terminal in Heroku
 - Structure and layout for Readme
 Markdown Cheatsheet - https://www.markdownguide.org/cheat-sheet/
