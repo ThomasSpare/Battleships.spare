@@ -138,9 +138,9 @@ swallowing ships and moving them to another location.
 # Credits
 Code institute
 
-# Mock Terminal in Heroku
-# Structure and layout for Readme
-# Markdown Cheatsheet - https://www.markdownguide.org/cheat-sheet/
+- Mock Terminal in Heroku
+- Structure and layout for Readme
+Markdown Cheatsheet - https://www.markdownguide.org/cheat-sheet/
 
 Lucid Flowcharts
 
