@@ -138,7 +138,10 @@ swallowing ships and moving them to another location.
 # Credits
 Code institute
 
-Thanks to my mentor Brian O'hare for support and guidance 
+Thanks to my mentor Brian O'hare and my swedish study group
+Mark, Anne-lie and Johan
+for support and guidance
+  
 Thanks to Code institute tutor support
   
 - Mock Terminal in Heroku
