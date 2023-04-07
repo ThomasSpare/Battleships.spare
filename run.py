@@ -1,12 +1,18 @@
-from toolbox import clear_console
-from termcolor import colored
-import time
+
+
 import random
+import time
+from termcolor import colored
+from toolbox import clear_console
+
 
 # Object Oriented Programmed Battleship Game
 # CODE credit
 # This game was inspired by this battleship tutorial
 # https://www.youtube.com/watch?v=tF1WRCrd_HQ
+
+
+
 
 
 def menu():
@@ -31,28 +37,21 @@ print(colored("""
     """, "black", "on_red", attrs=["bold", "blink"]))
 
 
-INTRO = True
+intro = True
 user_name = input("Captain, write your name in the logbook to do battle: \n")
 time.sleep(1)
 print(colored("Board sizes avaiable: 5 X 5  (enter 5)", "light_green"))
 time.sleep(1)
-
-while INTRO:
+while intro:
     difficulty = input("Captain " + user_name + ", enter boardsize (5): ")
     while difficulty == "" or difficulty != "5":
         print("Choose a board by pressing 5 sire.")
         difficulty = input("Captain " + user_name + ", enter boardsize (5): ")
-    else:
-        INTRO = False
-        break
-
     if difficulty == "5":
         boardsize = "5"
-        INTRO = False
-else:
-    INTRO = True
-    print("Very Good Captain! We'll set up a " + boardsize + " x " + boardsize 
-    + " board for ya right away.")
+        intro = False
+    print("Very Good Captain! We'll set up a " + boardsize + " x " 
+    + boardsize +" board for ya right away.")
     time.sleep(1)
     clear_console()
     print(colored("""
@@ -84,9 +83,11 @@ class gameboard:
     def __init__(self, board):
         self.board = board
 
+
     def get_let_to_num():
         let_to_num = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
         return let_to_num
+
 
     def print_board(self):
         print("\u0332".join("  A B C D E"))
