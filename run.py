@@ -1,19 +1,14 @@
 
-
 import random
 import time
 from termcolor import colored
 from toolbox import clear_console
 
 
-# Object Oriented Programmed Battleship Game
+# Object Oriented Programmed BattleShip Game
 # CODE credit
-# This game was inspired by this battleship tutorial
+# This game was inspired by this BattleShip tutorial
 # https://www.youtube.com/watch?v=tF1WRCrd_HQ
-
-
-
-
 
 def menu():
     """
@@ -23,17 +18,7 @@ def menu():
     """
 
 
-print(colored("""
-
-        ___  ____ ___ ___ _    ____ ____ _  _ _ ___  ____                 
-        |__] |__|  |   |  |    |___ [__  |__| | |__] |__                  
-        |__] |  |  |   |  |___ |___ ___] |  | | |    ___|                 
-                        __     __                                         
-                        \_\_   \_\_  ________                             
-                        \  \   \  \/        \                             
-        ____________|¨¨¨¨¨¨¨¨¨¨¨¨¨^         ^¨¨¨\_______/¨¨¨¨\~~~==______ 
-        \                                                          /      
-        ¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨ ¨¨¨¨¨¨¨¨¨¨¨¨¨¨ 
+print(colored("""CHASING CAPTAIN MCVHIR
     """, "black", "on_red", attrs=["bold", "blink"]))
 
 
@@ -50,8 +35,7 @@ while intro:
     if difficulty == "5":
         boardsize = "5"
         intro = False
-    print("Very Good Captain! We'll set up a " + boardsize + " x " 
-    + boardsize +" board for ya right away.")
+    print("Very Good Captain! We'll set up a " + boardsize + " x " + boardsize + " board for ya right away.")
     time.sleep(1)
     clear_console()
     print(colored("""
@@ -65,14 +49,14 @@ while intro:
     print(colored("""
     Unfortunatly this weather doesn´t make it an easy task.
     The Typhoon that is roaring across the sea will
-    make it even more difficult so you only have 10 turns to 
+    make it even more difficult so you only have 10 turns to
     blast his five ships.
     \n""", "cyan"))
     time.sleep(2)
     print(colored("""
-    The 5 ships are 1 square in size. A direct hit shows a (¤) 
+    The 5 ships are 1 square in size. A direct hit shows a (¤)
     a missed shot shows a (-).
-    \n""","cyan"))
+    \n""", "cyan"))
 
 
 class gameboard:
@@ -83,24 +67,21 @@ class gameboard:
     def __init__(self, board):
         self.board = board
 
-
     def get_let_to_num():
         let_to_num = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4}
         return let_to_num
-
 
     def print_board(self):
         print("\u0332".join("  A B C D E"))
         print("--^-^-^-^-^-")
         row_number = 1
         for row in self.board:
-            print("%d|%s|" % (row_number, "|".join(row)))
+            print("%d|%s|" % (row_number, ".".join(row)))
             row_number += 1
 
-
-class battleship:
+class BattleShip:
     """
-    Handle inputs, hits, misses and placements of ships on the gameboard  
+    Handle inputs, hits, misses and placements of ships on the gameboard
     """
     def __init__(self, board):
         self.board = board
@@ -112,7 +93,7 @@ class battleship:
         for i in range(5):
             self.xrow, self.yclm = random.randint(0, 4), random.randint(0, 4)
             while self.board[self.xrow][self.yclm] == "¤":
-                self.xrow, self.yclm = random.randint(0, 4),random.randint(0,4)
+                self.xrow, self.yclm = random.randint(0, 4), random.randint(0, 4)
             self.board[self.xrow][self.yclm] = "¤"
         return self.board
 
@@ -141,7 +122,6 @@ class battleship:
             return self.get_user_input()
             return int(xrow) - 1, gameboard.get_let_to_num()[yclm]
 
-
     def count_hit_ships(self):
         """
         Calculate if user hits or miss
@@ -158,32 +138,32 @@ def runGame():
     """
     Asks user to input rows and columns. Countdown turns from 10.
     Alerts user of hits or miss. After 10 turns game is over if not
-    hit 5 ships and user get question to play new game. 
+    hit 5 ships and user get question to play new game.
     """
     print(f"Welcome Captain {user_name}. Let's get into Battle!")
     time.sleep(1)
-    print(colored(f"Mcwhir: Captain {user_name} I will show you pain!","red"))
+    print(colored(f"Mcwhir: Captain {user_name} I will show you pain!", "red"))
     computer_board = gameboard([[" "] * 5 for i in range(5)])
     usrbrd = gameboard([[" "] * 5 for i in range(5)])
-    battleship.create_ships(computer_board)
+    BattleShip.create_ships(computer_board)
 
     turns = 10
     while turns > 0:
         gameboard.print_board(usrbrd)           # code below/ above shortened
-        xrow, yclm = battleship.get_user_input(object)  # due to 80 Col limit
-        while usrbrd.board[xrow][yclm] == "-" or usrbrd.board[xrow][yclm]=="¤":
+        xrow, yclm = BattleShip.get_user_input(object)  # due to 80 Col limit
+        while usrbrd.board[xrow][yclm] == "-" or usrbrd.board[xrow][yclm] == "¤":
             print("You guessed that one already")
-            xrow, yclm = battleship.get_user_input(object)
+            xrow, yclm = BattleShip.get_user_input(object)
         if computer_board.board[xrow][yclm] == "¤":
             clear_console()
-            print(colored("""HIT ! You will pay for sinking 1 of my 
-            battleships!\n""", "light_green"))
+            print(colored("""HIT ! You will pay for sinking 1 of my
+            BattleShips!\n""", "light_green"))
             usrbrd.board[xrow][yclm] = "¤"
         else:
             clear_console()
-            print("Ha, You missed my battleship!")
+            print("Ha, You missed my Battleship!")
             usrbrd.board[xrow][yclm] = "-"
-        if battleship.count_hit_ships(usrbrd) == 5:
+        if BattleShip.count_hit_ships(usrbrd) == 5:
             clear_console()
             print("YOU WON - Damn You for destroying my fleet!")
             playagain = input("Play another game ? yes / no: \n")
