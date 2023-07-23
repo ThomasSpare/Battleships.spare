@@ -54,7 +54,6 @@ most often in the row / column input selection. So I used boolean operators in t
 nail down all the valid input values such as:
 - To stop an integer input for a Column: type(yclm) != int:
 - To stop a letter input (str) in a Row: type(xrow) == int:
-
 ---
 
 **<li>Repeteadly Entering 'int' in row and 'int' in column<li>**
@@ -71,11 +70,12 @@ gameboard. I found this rather annoying so to prevent this from happening I
 made use of the function clear.console() after each user input, placing the
 gameboard in a more fixed position.
 
-## Crashes
-If the user enters values in a normal fashion the game would not crash, regardless 
-if it was the wrong input value type or not. Although during manual
-testing if I repeatedly hit a number or letter really fast, 
-the game would suddenly opt out.
+## The Typhoon scenario
+The typhoon scenario is not operational as was intended. The code is there for it to work
+but when trying to engage it after the typhoon turn drops to 0 the game would break.
+My guess is it has to do with using the class Battleship in the run_game function.
+The code should print a whole line filled on the user board and all hit enemy ships in 
+this line would respawn and be placed in a new hidden location. 
 
 # Testing
 ----
@@ -83,7 +83,6 @@ the game would suddenly opt out.
 
 Code was checked during development using CI python Linter PEP8 with no errors
 except line too long (81 > 79 characters) errors.
-
 Some code parts would not work if shortend so I had to exceed the 80 line
 mark on some parts.
 
@@ -91,7 +90,7 @@ mark on some parts.
 
 ## Manual testing
 
-Performed manual testing during development cycle.
+I have performed manual testing during the development cycle.
 For instance user_name input accepts all inputs except an empty input but I found that 
 repeatedly hitting enter bypasses this and the user is allowed to have a blank name. 
 
@@ -107,9 +106,9 @@ repeatedly hitting enter bypasses this and the user is allowed to have a blank n
 
 # Python Libraries used in the game
 
-- time
-- random
-- termcolor
+- time (I used to display messages to the user that otherwise would just flicker by)
+- random (is used to place enemy ships randomly on the board)
+- termcolor (is used to declare hit or miss, win or lose messages)
 
 
 
@@ -124,8 +123,6 @@ For instance
 - Computer guess
 - Advanced Computer guess
 - Typhoon scenario  (se above image)
-My typhoon scenario would introduce storms on the gameboard, moving over the board and
-swallowing ships and moving them to another location.
 - Different ship sizes
   
 ---  
@@ -134,7 +131,7 @@ swallowing ships and moving them to another location.
 ## This project was deployed using Code Institue's mock terminal for Heroku.
 
 - Steps for deployment
-- Create in gitpod
+- Create project in gitpod
 - commit/push to github
 - Create a new app in Heroku
 - link Heroku to Github repository
@@ -143,8 +140,8 @@ swallowing ships and moving them to another location.
 # Credits
 Code institute
 
-Thanks to my mentor Brian O'hare and my swedish study group
-Mark, Anne-lie and Johan
+Thanks to my mentor Brian O'hare and my study group
+Mark, Shubham, Anne-lie and Johan
 for support and guidance
   
 Thanks to Code institute tutor support
@@ -155,7 +152,7 @@ Markdown Cheatsheet - https://www.markdownguide.org/cheat-sheet/
 
 Lucid Flowcharts
 
-I watched this video to learn the basics for my battleship game:
+I learned the basics for my battleship game from here:
 
 https://www.youtube.com/watch?v=tF1WRCrd_HQ
 
