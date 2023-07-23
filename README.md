@@ -81,7 +81,19 @@ the game would suddenly opt out.
 ----
 ## PEP8
 
-Code was checked using CI python Linter PEP8 with 3 errors.
+Code was checked during development using CI python Linter PEP8 with no errors
+except line too long (81 > 79 characters) errors.
+
+Some code parts would not work if shortend so I had to exceed the 80 line
+mark on some parts.
+
+![PEP8](https://github.com/ThomasSpare/Battleships.spare/blob/main/documentation/PP3_PEP8.png)
+
+## Manual testing
+
+Performed manual testing during development cycle.
+For instance user_name input accepts all inputs except an empty input but I found that 
+repeatedly hitting enter bypasses this and the user is allowed to have a blank name. 
 
 
 # Techologies and resources used
